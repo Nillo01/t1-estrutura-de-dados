@@ -75,6 +75,17 @@ void percentual_n_nulos(Esparsa* m){
     float percent = (float) cont/ (m->colunas * m->linhas) * 100;
     printf("o percentual de numeros não nulos: %.2f", percent);
 }
+void liberar_lista(Esparsa* m) {
+    Lista* p = m->prim;
+    Lista* temp;
+    while (p != NULL) {
+        temp = p->prox; 
+        free(p); 
+        p = temp;     
+    }
+    free(m);
+}
+
 int main(){
     Esparsa* m;
     int n;
@@ -93,5 +104,6 @@ int main(){
     printf("digite a linha que vc deseja somar\n");
     scanf("%d", &lin);
     somatorio(m->prim, lin);
-    free(m);
+    percentual_n_nulos(m);
+    liberar_lista(m);
 }
