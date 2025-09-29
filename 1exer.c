@@ -15,8 +15,8 @@ Diagonal* criacao_mat(){
 }
 
 void  preencher_mat(Diagonal* d){
+    printf("digite os valores de sua diagonal principal\n");
     for(int i = 0; i < d->ordem; i++){
-        printf("digite os valores de sua diagonal principal\n");
         scanf("%d", &d->v[i]);
     }
 }
